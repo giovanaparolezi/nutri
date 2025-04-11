@@ -1,7 +1,9 @@
-@font-face {
+@font-face { 
     font-family: "Comf";
     src: url('Comfortaa-VariableFont_wght.ttf');
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -15,8 +17,17 @@ p, label, input, textarea, select, button {
     font-family: 'Comfortaa', cursive;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* Header */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 header {
     background: #1d7f67;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -24,11 +35,10 @@ header {
     border-radius: 20px;
     padding: 15px 0;
     width: 97%;
-    margin-left: 20px;
-  
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -37,19 +47,16 @@ header {
     font-weight: bold;
 }
 
-/* Logo */
 .logo img {
     width: 120px;
     height: auto;
 }
 
-/* Links do menu */
 .navbar-nav .nav-link {
     color: white !important;
     font-weight: 500;
     margin: 0 15px;
     transition: color 0.3s ease;
-   
 }
 
 .navbar-nav .nav-link:hover {
@@ -57,7 +64,6 @@ header {
     font-weight: bold;
 }
 
-/* Menu dropdown */
 .dropdown-menu {
     background: #2c3e50;
     border-radius: 10px;
@@ -73,7 +79,6 @@ header {
     color: white;
 }
 
-/* Botão de Login */
 .navbar-nav .btn {
     background: white;
     color: #a0c6bf;
@@ -88,134 +93,124 @@ header {
     color: white;
 }
 
-/* Botão do menu sanduíche */
 .navbar-toggler-icon {
     filter: invert(1);
 }
 
-/* Responsividade */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        text-align: center;
-    }
-
-    .navbar-nav {
-        width: 100%;
-    }
-
-    .nav-item {
-        padding: 10px 0;
-    }
-
-    .navbar-toggler {
-        display: flex;
-        justify-content: end;
-        border: none !important;
-        outline: none !important;
-        padding: 8px 10px;
-        border-radius: 5px;
-    }
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-/*banner*/
 .banner img {
     width: 97%;
     display: block;
     border-radius: 20px;
     margin-top: 2%;
-    align-items: center;
-    justify-content: center;
 }
 
-.banner {
-    justify-content: center;
-    align-items: center;
+/* Troca a imagem do banner para banner2.png quando em telas menores que 768px */
+@media (max-width: 768px) {
+    .banner img {
+        content: url('img/banner2.png'); /* Troca a imagem quando a largura for menor que 768px */
+    }
+}
+.video-content {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
 }
 
-/* Animação para entrada */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+.background-video {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    padding: 0;
+    outline: none !important;
+    border: none !important;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .video-content {
+        display: none !important;
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
-
-.info-box h2{
+.info-box h2 {
     font-family: 'Poppins';
     font-weight: bold;
     font-size: 30px;
     display: flex;
     justify-content: center;
-
 }
-.info-box p{
+
+.info-box p {
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Comfortaa';
-
 }
+
 .info {
     display: flex;
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
     padding: 20px 20px;
-    position: relative;
-    margin-top: -200px; /* Ajuste para mover as seções para cima */
-    margin-bottom: 20px; /* Diminuir a distância entre Missão/Visão e os Cards */
+    margin-top: -200px;
+    margin-bottom: 20px;
 }
 
-/* Missão e Visão */
 .missao, .visao {
     margin-top: 200px;
     position: relative;
-    z-index: 2; /* Garantir que fiquem acima do vídeo */
+    z-index: 2;
     border-radius: 20px;
-    padding: 10px; /* Aumentei o padding para dar mais espaço */
+    padding: 10px;
     width: 500px;
     transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.6s ease-in-out forwards; /* Animação de entrada */
-    font-family: 'Poppins', sans-serif; /* Fonte mais agradável */
+    animation: fadeInUp 0.6s ease-in-out forwards;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Missão */
 .missao {
     background-color: #1d7f67;
     color: white;
     text-align: center;
 }
 
-.missao h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px; /* Aumentei o tamanho da fonte */
-    
+.missao h1,
+.visao h1 {
+    font-size: 24px;
     color: #ffffff;
 }
 
-.missao p {
-    font-size: 18px; /* Tamanho maior para o texto */
+.missao p,
+.visao p {
+    font-size: 18px;
     line-height: 1.6;
-    color: #ffffff;
     margin-bottom: 25px;
 }
 
-.missao img {
-    width: 80px; /* Aumentei a imagem para dar mais destaque */
+.missao img,
+.visao img {
+    width: 80px;
     height: auto;
     display: block;
     margin: 0 auto 20px;
 }
 
-/* Visão */
 .visao {
     background-color: #f8f9fa;
     color: #333;
@@ -223,60 +218,15 @@ header {
 }
 
 .visao h1 {
-    font-family: 'Poppins';
-    font-size: 24px; /* Aumentei o tamanho da fonte */
-    margin-bottom: 15px;
-  
-    color: #1d7f67; /* Cor de título para harmonizar */
+    color: #1d7f67;
 }
 
-.visao p {
-    font-size: 18px; /* Tamanho maior para o texto */
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 25px;
-}
-
-.visao img {
-    width: 70px; /* Aumentei a imagem para dar mais destaque */
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-/* Efeito de hover nas seções */
 .missao:hover, .visao:hover {
-    transform: translateY(-10px); 
+    transform: translateY(-10px);
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-/* Ajustes para responsividade */
-@media (max-width: 768px) {
-    .info {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px; /* Espaçamento entre os elementos para evitar sobreposição */
-    }
-
-    .missao, .visao {
-        width: 90%;
-    }
-
-    .missao h1, .visao h1 {
-        font-size: 28px; /* Menor tamanho para telas pequenas */
-    }
-
-    .missao p, .visao p {
-        font-size: 16px; /* Ajuste no tamanho do texto */
-    }
-
-    .missao img, .visao img {
-        width: 60px; /* Menor imagem no mobile */
-    }
-}
-
-/* Cards */
 .diagnostic-container {
     margin-top: 20px;
     padding: 20px;
@@ -284,12 +234,12 @@ header {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap; /* Adicionado para garantir que os cards se ajustem corretamente */
+    flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    height: auto; /* Ajuste para evitar que os cards estiquem a altura */
-    z-index: 2; /* Garante que os cards fiquem acima do vídeo */
+    height: auto;
+    z-index: 2;
 }
 
 .diagnostic-grid {
@@ -300,7 +250,6 @@ header {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .diagnostic-item {
@@ -313,12 +262,10 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .diagnostic-item:hover {
-    transform: translateY(-10px); /* Animação de hover nos cards */
+    transform: translateY(-10px);
 }
 
 .diagnostic-item a {
@@ -342,46 +289,6 @@ header {
     font-family: "Comf";
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .diagnostic-grid {
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
-    }
-
-    .diagnostic-container {
-        padding: 10px;
-    }
-
-    .diagnostic-item {
-        width: 90%; /* Faz com que os cards ocupem mais espaço em telas pequenas */
-        margin-bottom: 20px; /* Adiciona um pequeno espaçamento inferior */
-    }
-
-    .diagnostic-item h2 {
-        font-size: 18px; /* Ajuste no tamanho da fonte */
-    }
-
-    .diagnostic-item p {
-        font-size: 12px; /* Ajuste no tamanho da fonte */
-    }
-}
-
-/* Ajuste para telas muito pequenas */
-@media (max-width: 480px) {
-    .diagnostic-item {
-        width: 100%; /* Em telas muito pequenas, ocupa toda a largura */
-    }
-
-    .diagnostic-item h2 {
-        font-size: 16px; /* Ajuste do tamanho da fonte */
-    }
-
-    .diagnostic-item p {
-        font-size: 12px; /* Ajuste do tamanho da fonte */
-    }
-}
-
-/* Formulário */
 .form-container {
     background: #ffffff;
     border-radius: 15px;
@@ -435,55 +342,125 @@ button:hover {
     display: none;
 }
 
-/* Vídeo */
-.video-content {
-    padding: 0;
-    position: relative;
-    width: 100%; /* Garantir que o vídeo ocupe 100% da largura disponível */
-    height: auto; /* Ajusta automaticamente a altura para manter a proporção */
-    border: none !important;
-    object-fit: contain;
-    margin: 0 auto; /* Centraliza o conteúdo */
-    margin-top: 0px; /* Retira a margem superior */
-    margin-bottom: 20px; /* Ajuste a margem inferior para o vídeo não sobrepor os outros elementos */
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    z-index: 0; /* Garante que o vídeo fique atrás dos outros elementos */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Vídeo de fundo */
-.background-video {
-    width: 80%; /* Ajusta a largura para 100% */
-    height: auto; /* Mantém a altura proporcional */
-    object-fit: cover; /* Garante que o vídeo cubra a área sem distorcer */
-    padding: 0;
-    outline: none !important;
-    border: none !important;
-    margin: 0;
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .nav-item {
+        padding: 10px 0;
+    }
+
+    .navbar-toggler {
+        display: flex;
+        justify-content: end;
+        border: none !important;
+        outline: none !important;
+        padding: 8px 10px;
+        border-radius: 5px;
+        margin-top: -59px;
+    }
+
+    header {
+        width: 97%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner img {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .info-box {
+        text-align: center;
+    }
 }
 
-/* Responsividade para o vídeo */
 @media (max-width: 768px) {
-    .video-content {
-        width: 100%; /* No mobile, faz o vídeo ocupar 100% da largura da tela */
-        height: auto; /* Ajuste automático da altura */
-        margin-top: 20px; /* Espaçamento acima do vídeo */
+    .info {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .missao, .visao {
+        width: 90%;
+        margin-top: 0;
+    }
+
+    .missao h1, .visao h1 {
+        font-size: 28px;
+    }
+
+    .missao p, .visao p {
+        font-size: 16px;
+    }
+
+    .missao img, .visao img {
+        width: 60px;
+    }
+
+    .diagnostic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diagnostic-container {
+        padding: 10px;
+    }
+
+    .diagnostic-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .diagnostic-item h2 {
+        font-size: 18px;
+    }
+
+    .diagnostic-item p {
+        font-size: 12px;
     }
 
     .background-video {
-        height: auto;
-        object-fit: contain; /* Manter proporções no mobile */
+        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
+    .diagnostic-item {
+        width: 100%;
+    }
+
+    .diagnostic-item h2 {
+        font-size: 16px;
+    }
+
+    .diagnostic-item p {
+        font-size: 12px;
+    }
+
     .video-content {
-        width: 100%; /* Garante que no mobile ele ocupe toda a largura */
+        width: 100%;
     }
 
     .background-video {
-        height: 100%; /* Ajuste para que o vídeo se ajuste no espaço disponível */
+        height: 100%;
     }
 }
-
