@@ -1,10 +1,11 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato</title>
+
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,59 +14,77 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
   <style>
-    /* Estilos gerais */
-    body {
-      font-family: 'Poppins', sans-serif;
+    /* Responsividade */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Poppins', sans-serif;
+    .navbar-nav {
+        width: 100%;
     }
 
-    p, label, input, textarea, select, button {
-      font-family: 'Comfortaa', cursive;
+    .nav-item {
+        padding: 10px 0;
     }
 
-    /* Menu de navegação */
     .navbar-toggler {
-      border: none;
-      padding: 0.5rem;
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: none;
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        display: flex;
+        justify-content: end;
+        border: none !important;
+        outline: none !important;
+        padding: 8px 10px;
+        border-radius: 5px;
+        margin-top: -59px;
+        
     }
 
     @media (max-width: 991px) {
-      .navbar-collapse {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 5px;
-        margin-top: 10px;
-      }
-
-      .navbar-nav {
-        width: 100%;
-      }
-
-      .nav-item {
-        padding: 10px 0;
-      }
-
-      header {
-        width: 97%;
-        margin-left: auto;
-        margin-right: auto;
-      }
+        header {
+            width: 97%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .banner img {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
-    /* Rodapé */
+    .info-box{
+        
+   text-align: center;
+        
+    }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p, label, input, textarea, select, button {
+    font-family: 'Comfortaa', cursive;
+}
+ 
+
     .harmony-footer {
+      background-color: #5eb6a6;
+      color: white;
+      padding: 60px 20px 40px;
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+      font-family: 'Poppins', sans-serif;
+      display: flexbox;
+      flex-direction: row;
+    }
+
+    .custom-footer {
       background-color: #5eb6a6;
       color: white;
       padding: 60px 20px 40px;
@@ -73,6 +92,10 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    .footer-nav{
+      display: flexbox;
+      flex-direction: column;
+    }
     .nav-harmony a {
       color: white;
       margin: 5px 10px;
@@ -86,30 +109,150 @@
       text-decoration: none;
     }
 
-    /* Seção de contato */
-    .contact {
+    .credits-text {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 20px;
+    }
+
+   
+    .social-box {
       display: flex;
       flex-direction: row;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin: 40px 0;
+      gap: 20px;
+      padding: 25px 25px;
+      background-color: #5eb6a6;
+      border: none;
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .logo-harmony {
+      height: 50px;
     }
 
-    .contact img {
-      width: 45%;
-      height: auto;
-      border-radius: 200px;
-      margin-left: 30px;
-      object-fit: contain;
+    .icon-wrapper {
+      width: 52px;
+      height: 52px;
+      background-color: #1d7f67;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: 0.3s;
+      border-radius: 50%;
     }
 
-    .contact div {
-      width: 50%;
-      margin-left: 20px;
+    .icon-wrapper:hover .icon-svg {
+      animation: slide-in-top 0.3s both;
     }
 
-    /* Galeria de médicos */
+    .icon-wrapper:active {
+      transform: scale(0.9);
+    }
+
+    .insta-hover:hover {
+      background-color: #d62976;
+    }
+    .twitter-hover:hover {
+      background-color: #00acee;
+    }
+    .linkedin-hover:hover {
+      background-color: #0072b1;
+    }
+    .whatsapp-hover:hover {
+      background-color: #128C7E;
+    }
+
+    .icon-svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-svg path {
+      fill: white;
+    }
+
+    @keyframes slide-in-top {
+      0% {
+          transform: translateY(-50px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+    }
+
+    .body {
+      background-color: #f5f7f7;
+    }
+
+    .contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.contact img {
+  width: 45%;
+  height: auto;
+  border-radius: 200px;
+  margin-left: 30px;
+  object-fit: contain;
+}
+
+.contact div {
+  width: 50%;
+  margin-left: 20px;
+}
+
+.contact h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7a6b5b;
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact img {
+    width: 80%;
+    margin: 20px 0;
+  }
+
+  .contact div {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .contact h2 {
+    font-size: 1.4rem;
+    margin-left: 0;
+    
+  }
+
+  .contact p {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+}
     .galeria-container {
       margin-bottom: 40px;
       margin-top: 30px;
@@ -118,10 +261,12 @@
       background-position: center;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: transparent;
     }
 
     .galeria-container.medicos {
       background-color: #5eb6a6;
+
     }
 
     .galeria {
@@ -133,6 +278,14 @@
       border-radius: 30px;
     }
 
+    .galeria-container h2{
+      color: white;
+     
+    }
+.galeria-container h3{
+  font-family: 'Poppins';
+  margin-top: 20px;
+}
     .card {
       width: 22%;
       padding: 20px;
@@ -150,16 +303,36 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 8px;
-      margin-bottom: 10px;
+    .card.selected {
+      transform: scale(1.0);
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* Formulário e FAQ */
+    .card:not(.selected) {
+      transform: scale(0.9);
+    }
+
+    .fade-in-scroll {
+      opacity: 0;
+      transition: opacity 1s ease-out;
+    }
+    .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top; /* Isso vai garantir que a parte superior da imagem seja priorizada */
+  border-radius: 8px;
+  margin-bottom: 10px; /* Se necessário, ajusta o espaço abaixo da imagem */
+}
+.card h3 {
+  margin-top: 10px; /* ou até 0 se quiser o texto mais colado na imagem */
+}
+
+    .fade-in-scroll.visible {
+      opacity: 1;
+    }
+
     .form-faq-container {
       display: flex;
       flex-wrap: wrap;
@@ -186,24 +359,66 @@
       gap: 20px;
     }
 
-    .faq .card1, .faq .card2, .faq .card3, .faq .card4 {
+    .faq .card {
+      width: 48%;
+    }
+
+
+    #contatoForm,
+    #contatoForm input,
+    #contatoForm textarea,
+    #contatoForm button,
+    #contatoForm label {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .galeria-container.medicos h2 {
+      text-align: center;
+      width: 100%;
       display: block;
-      position: relative;
-      max-width: 262px;
-      background-color: #f2f8f9;
-      border-radius: 4px;
-      padding: 30px 27px;
-      margin: 12px;
-      text-decoration: none;
-      z-index: 0;
-      overflow: hidden;
-      border: 1px solid #f2f8f9;
-      transition: all 0.2s ease-out;
-      font-size: 14px;
+      margin-left: 0 !important;
+    }
+
+    .form-group {
       margin-bottom: 20px;
     }
 
-    /* Estilos responsivos */
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #contatoForm button {
+      background-color: #5eb6a6;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #contatoForm button:hover {
+      background-color: #1d7f67;
+    }
+
     @media (max-width: 992px) {
       .form-faq-container {
         flex-direction: column;
@@ -239,23 +454,6 @@
         width: 80%;
         margin-bottom: 20px;
       }
-
-      /* Ajuste para 2 cards por linha no FAQ em mobile */
-      .faq .galeria {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-      
-      .faq .card1, 
-      .faq .card2, 
-      .faq .card3, 
-      .faq .card4 {
-        width: calc(50% - 20px);
-        max-width: none;
-        margin: 0 0 20px 0;
-        padding: 20px 15px;
-      }
     }
 
     @media (max-width: 576px) {
@@ -276,80 +474,252 @@
         font-size: 1rem;
       }
 
-      /* Ajuste para 1 card por linha em telas muito pequenas */
-      .faq .card1, 
-      .faq .card2, 
-      .faq .card3, 
-      .faq .card4 {
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+    }
+
+    /*seção FAQ */
+    .faq .card1, .faq .card2, .faq .card3, .faq .card4 {
+      display: block;
+      position: relative;
+      max-width: 262px;
+      background-color: #f2f8f9;
+      border-radius: 4px;
+      padding: 30px 27px;
+      margin: 12px;
+      text-decoration: none;
+      z-index: 0;
+      overflow: hidden;
+      border: 1px solid #f2f8f9;
+      transition: all 0.2s ease-out;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    .faq .card1:before, .faq .card2:before, .faq .card3:before, .faq .card4:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -16px;
+      right: -16px;
+      background: #5eb6a6;
+      height: 32px;
+      width: 32px;
+      border-radius: 32px;
+      transform: scale(1);
+      transform-origin: 50% 50%;
+      transition: transform 0.25s ease-out;
+    }
+
+    .faq .card1:hover:before, .faq .card2:hover:before, .faq .card3:hover:before, .faq .card4:hover:before {
+      transform: scale(21);
+    }
+
+    .faq .card1:hover p, .faq .card2:hover p, .faq .card3:hover p, .faq .card4:hover p {
+      transition: all 0.3s ease-out;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .faq .card1:hover h3, .faq .card2:hover h3, .faq .card3:hover h3, .faq .card4:hover h3 {
+      transition: all 0.3s ease-out;
+      color: #fff;
+    }
+
+    .faq .card2:hover, .faq .card3:hover, .faq .card4:hover {
+      box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+
+    .faq .card2:hover {
+      border: 1px solid #00838d;
+    }
+
+    .faq .card1 .go-corner, .faq .card2 .go-corner, .faq .card3 .go-corner, .faq .card4 .go-corner {
+      opacity: 0.7;
+    }
+
+    .faq .card3:hover .go-corner, .faq .card4:hover .go-corner {
+      transition: opacity 0.3s linear;
+      opacity: 1;
+    }
+
+    .faq .card4:hover .go-arrow {
+      opacity: 1;
+    }
+
+    .faq .galeria-container {
+      margin-top: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0;
+    }
+
+    @media (max-width: 992px) {
+      .faq .card {
         width: 100%;
       }
     }
 
-    /* Efeitos de animação */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    @media (max-width: 768px) {
+      .faq .card {
+        width: 100%;
+        margin-bottom: 15px;
+      }
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @media (max-width: 576px) {
+      .faq .card {
+        width: 100%;
+      }
+    }
+    .harmony-footer {
+        background-color: #5eb6a6;
+        color: white;
+        padding: 60px 20px 40px;
+        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+        font-family: 'Poppins', sans-serif;
     }
 
-    .fade-in-scroll {
-      opacity: 0;
-      transition: opacity 1s ease-out;
+    .logo-harmony {
+        height: 50px;
     }
 
-    .fade-in-scroll.visible {
-      opacity: 1;
+    .nav-harmony {
+        display: flexbox;
+        flex-direction: column;
     }
 
-    /* Estilos do WhatsApp flutuante */
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 40px;
-      right: 40px;
-      background-color: #FFFFFF;
-      color: #25D366;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .nav-harmony a {
+        color: white;
+        margin: 0 10px;
+        font-size: 16px;
+        text-decoration: none;
+        transition: color 0.3s ease;
     }
 
-    .whatsapp-float:hover {
-      color: #25D366;
-      text-decoration: none;
+    .nav-harmony a:hover {
+        color: #1d7f67;
+        text-decoration: none;
+    }
+
+    .credits-text {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    .social-box {
+        width: fit-content;
+        height: fit-content;
+        background-color: #5eb6a6;
+        display: flexbox;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 25px;
+        gap: 20px;
+        border: none;
+    }
+
+    .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        background-color: #1d7f67;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition-duration: .3s;
+        flex-direction: row;
+    }
+
+    .insta-hover:hover {
+        background-color: #d62976;
+        transition-duration: .3s;
+    }
+
+    .twitter-hover:hover {
+        background-color: #00acee;
+        transition-duration: .3s;
+    }
+
+    .linkedin-hover:hover {
+        background-color: #0072b1;
+        transition-duration: .3s;
+    }
+
+    .whatsapp-hover:hover {
+        background-color: #128C7E;
+        transition-duration: .3s;
+    }
+
+    .icon-wrapper:active {
+        transform: scale(0.9);
+        transition-duration: .3s;
+    }
+
+    .icon-svg {
+        width: 17px;
+    }
+
+    .icon-svg path {
+        fill: rgb(255, 255, 255);
+    }
+
+    .icon-wrapper:hover .icon-svg {
+        animation: slide-in-top 0.3s both;
+    }
+
+    @keyframes slide-in-top {
+        0% {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand logo" href="index.html">
-          <img src="img/logo.png" alt="Logo" style="height: 50px;">
+          <img src="img/logo.png" alt="Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="calculadorasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="calculadorasDropdown" role="button" data-bs-toggle="dropdown">
                 Calculadoras Nutricionais
               </a>
-              <ul class="dropdown-menu" aria-labelledby="calculadorasDropdown">
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="calculadora1/index.html">TMB</a></li>
                 <li><a class="dropdown-item" href="calculadora2/index.html">IMC</a></li>
                 <li><a class="dropdown-item" href="calculadora3/index.html">Peso Ideal</a></li>
@@ -455,13 +825,56 @@
     </div>
   </section>
 
-  <a href="https://wa.me/5516996240551?text=Nutrition%20Harmony" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <script>
+    function selecionarCard(card) {
+      const todosCards = document.querySelectorAll('.card');
+      todosCards.forEach(function (c) {
+        c.classList.remove('selected');
+      });
+      card.classList.add('selected');
+    }
 
+    const fadeInElements = document.querySelectorAll('.fade-in-scroll');
+    window.addEventListener('scroll', () => {
+      fadeInElements.forEach(element => {
+        if (element.getBoundingClientRect().top < window.innerHeight) {
+          element.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
+<a href="https://wa.me/5516996240551?text=Nutrition%20Harmony" 
+style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; 
+       background-color: #FFFFFF; color: #25D366; border-radius: 50%; 
+       text-align: center; font-size: 30px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+       z-index: 1000;" 
+target="_blank">
+ <i class="fab fa-whatsapp" style="line-height: 60px; color: #25D366;"></i>
+</a>
+
+<script>
+  
+  function checkFadeInElements() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top <= windowHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+
+  window.addEventListener('scroll', checkFadeInElements);
+  window.addEventListener('load', checkFadeInElements);
+</script>
+    
   <footer class="harmony-footer">
     <div class="container text-center">
-        <img src="img/logo.png" alt="Logo Nutrition Harmony" class="logo-harmony mb-4" style="height: 50px;">
+        <img src="img/logo.png" alt="Logo Nutrition Harmony" class="logo-harmony mb-4">
 
         <div class="nav-harmony mb-3">
             <a href="index.html">Início</a>
@@ -481,7 +894,7 @@
           </a>
           <a href="#" class="icon-wrapper twitter-hover" aria-label="Twitter">
               <svg class="icon-svg" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.35 8.5 8.5 0 0 1-2.7 1.03 a4.22 4.22 0 0 0-7.2 3.85A12 12 0 0 1 3.1 4.9a4.22 4.22 0 0 0 1.3 5.63 4.2 4.2 0 0 1-1.91-.53v.05a4.22 4.22 0 0 0 3.38 4.13 4.3 4.3 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54a12 12 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.18 8.18 0 0 0 22.46 6z"/>
+                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.35 8.5 8.5 0 0 1-2.7 1.03 4.22 4.22 0 0 0-7.2 3.85A12 12 0 0 1 3.1 4.9a4.22 4.22 0 0 0 1.3 5.63 4.2 4.2 0 0 1-1.91-.53v.05a4.22 4.22 0 0 0 3.38 4.13 4.3 4.3 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54a12 12 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.18 8.18 0 0 0 22.46 6z"/>
               </svg>
           </a>
           <a href="#" class="icon-wrapper linkedin-hover" aria-label="LinkedIn">
@@ -498,43 +911,10 @@
 
         <p class="credits-text">© 2025 Nutrition Harmony. Todos os direitos reservados.</p>
     </div>
+
+  
+    
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function selecionarCard(card) {
-      const todosCards = document.querySelectorAll('.card');
-      todosCards.forEach(function (c) {
-        c.classList.remove('selected');
-      });
-      card.classList.add('selected');
-    }
-
-    // Animação de scroll
-    const fadeInElements = document.querySelectorAll('.fade-in-scroll');
-    window.addEventListener('scroll', () => {
-      fadeInElements.forEach(element => {
-        if (element.getBoundingClientRect().top < window.innerHeight) {
-          element.classList.add('visible');
-        }
-      });
-    });
-
-    // Verifica elementos ao carregar a página
-    function checkFadeInElements() {
-      const fadeElements = document.querySelectorAll('.fade-in');
-      fadeElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-        if (rect.top <= windowHeight - 100) {
-          el.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', checkFadeInElements);
-    window.addEventListener('load', checkFadeInElements);
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
