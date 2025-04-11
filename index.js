@@ -1,22 +1,19 @@
-
-function handleScroll() {
-    const cards = document.querySelectorAll('.missao, .visao');
+function handleScroll() { 
+    const elementsToReveal = document.querySelectorAll('.fade-in, .missao, .visao');
     const windowHeight = window.innerHeight;
 
-    
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
+    elementsToReveal.forEach(el => {
+        const elTop = el.getBoundingClientRect().top;
 
-        if (cardTop <= windowHeight * 0.8) { 
-            card.classList.add('visible');
+        if (elTop <= windowHeight * 0.8) { 
+            el.classList.add('visible');
         }
     });
 }
 
 window.addEventListener('scroll', handleScroll);
-
-
 window.addEventListener('load', handleScroll);
+
 
 
 function playVideo() {
