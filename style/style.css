@@ -397,16 +397,19 @@ button:hover {
     .info {
         flex-direction: column;
         align-items: center;
-        margin-top: 10px;
+        margin-top: 20px;
+        padding: 0 10px;
+        gap: 20px;
     }
 
     .missao, .visao {
-        width: 90%;
+        width: 100%;
         margin-top: 0;
+        text-align: center;
     }
 
     .missao h1, .visao h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .missao p, .visao p {
@@ -417,17 +420,23 @@ button:hover {
         width: 60px;
     }
 
-    .diagnostic-grid {
-        grid-template-columns: 1fr;
+    .diagnostic-container {
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
     }
 
-    .diagnostic-container {
-        padding: 10px;
+    .diagnostic-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
     }
 
     .diagnostic-item {
         width: 90%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .diagnostic-item h2 {
@@ -435,32 +444,6 @@ button:hover {
     }
 
     .diagnostic-item p {
-        font-size: 12px;
-    }
-
-    .background-video {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .diagnostic-item {
-        width: 100%;
-    }
-
-    .diagnostic-item h2 {
-        font-size: 16px;
-    }
-
-    .diagnostic-item p {
-        font-size: 12px;
-    }
-
-    .video-content {
-        width: 100%;
-    }
-
-    .background-video {
-        height: 100%;
+        font-size: 13px;
     }
 }
