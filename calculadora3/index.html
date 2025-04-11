@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Peso Ideal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-image: url('foto.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding-left: 8%;
+        }
+
+        .content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+
+        h1 {
+            color: #1d7f67;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #5eb6a6;
+            margin-bottom: 8px;
+        }
+
+        label, select, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #1d7f67;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Estilos para o botão de voltar */
+        .go-back-btn {
+            background-color: #fff;
+            text-align: center;
+            width: 12rem;
+            height: 2.5rem;
+            border-radius: 1rem;
+            position: relative;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            overflow: hidden;
+        }
+
+        .go-back-btn p {
+            font-family: 'Poppins';
+            font-size: 17px;
+        }
+
+        .go-back-btn div {
+            background-color: #1d7f67;
+            height: 3rem;
+            width: 100%;
+            border-radius: 1rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            transition: width 0.5s ease;
+        }
+
+        .go-back-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        .go-back-btn:hover div {
+            width: 80%;
+        }
+
+        .go-back-btn svg {
+            fill: #fff;
+            height: 1.5rem;
+            width: 1.5rem;
+            z-index: 2;
+        }
+
+        .go-back-btn p {
+            margin-left: 1rem;
+            z-index: 2;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #1d7f67;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .voltar:hover {
+            color: #5eb6a6;
+            text-decoration: underline;
+        }
+
+        .resultado-container {
+            background-color: #1d7f67;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            display: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .resultado-container h2 {
+            color: #bee1da;
+            text-align: center;
+        }
+
+        .resultado {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #btnDieta {
+            background-color: #f8f8f8;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        #btnDieta:hover {
+            background-color: #e0e0e0;
+        }
+
+        #pesoAtualBox {
+            display: none;
+            margin-right: 20px;
+        }
+
+        .button {
+            --width: 500px;
+            --height: 40px;
+            --tooltip-height: 35px;
+            --tooltip-width: 90px;
+            --gap-between-tooltip-to-button: 18px;
+            --button-color: #1d7f67;
+            --tooltip-color: #fff;
+            width: var(--width);
+            height: var(--height);
+            background: var(--button-color);
+            position: relative;
+            text-align: center;
+
+            font-family: 'Poppins';
+            transition: background 0.3s;
+        }
+
+        .button::before {
+            position: absolute;
+            content: attr(data-tooltip);
+            width: var(--tooltip-width);
+            height: var(--tooltip-height);
+            background-color: var(--tooltip-color);
+            font-size: 0.9rem;
+            color: #111;
+            border-radius: .25em;
+            line-height: var(--tooltip-height);
+            bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+            left: calc(50% - var(--tooltip-width) / 2);
+        }
+
+        .button::after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: var(--tooltip-color);
+            left: calc(50% - 10px);
+            bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+        }
+
+        .button::after, .button::before {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s;
+        }
+
+        .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button-wrapper, .text, .icon {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            color: #fff;
+        }
+
+        .text {
+            top: 0;
+        }
+
+        .text, .icon {
+            transition: top 0.5s;
+        }
+
+        .icon {
+            color: #fff;
+            top: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .button:hover {
+            background: #1d7f67;
+        }
+
+        .button:hover .text {
+            top: -100%;
+        }
+
+        .button:hover .icon {
+            top: 0;
+        }
+        @media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .resultado-container {
+        max-width: 500px;
+        width: 100%;
+        margin-top: 20px;
+        order: 2;
+    }
+
+    #pesoAtualBox {
+        order: 3;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .go-back-btn {
+        margin: 0 auto 20px auto;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="container">
+
+            <button class="go-back-btn" type="button" onclick="window.location.href='file:///C:/Users/Terceiro%20DEV/Desktop/NUTRITION%20HARMONY/index.html'">
+              <div></div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
+                  <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
+                  <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
+              </svg>
+              <p>Voltar</p>
+          </button>
+
+            <h1>Calculadora de Peso Ideal</h1>
+            <h2>Selecione o gênero</h2>
+            <select id="sexo" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+
+            <h2>Informe a altura em centímetros</h2>
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" required>
+
+            <button id="calcularPesoIdeal">Calcular Peso Ideal</button>
+            <button onclick="window.location.href='peso_ideal_infantil.html';">Calculadora Infantil</button>
+        </div>
+
+        <div class="resultado-container" id="resultadoBox">
+            <h2>Resultado</h2>
+            <p class="resultado" id="resultadoPesoIdeal"></p>
+            <button id="btnDieta">Deseja uma dieta personalizada?</button>
+        </div>
+
+        <div class="container" id="pesoAtualBox">
+            <h2>Sua Dieta Personalizada</h2>
+            <label for="pesoAtual">Informe seu peso atual (kg):</label>
+            <input type="number" id="pesoAtual">
+            <button id="verificarDieta">Verificar Dieta</button>
+            <p id="dietaMensagem"></p>
+        </div>
+    </div>
+
+    <script src="func.js"></script>
+</body>
+
+</html>

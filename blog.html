@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos e Dicas</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+       .harmony-footer {
+    background-color: #5eb6a6;
+    color: white;
+    padding: 60px 20px 40px;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    font-family: 'Poppins', sans-serif;
+    display: flexbox;
+    flex-direction: row;
+}
+
+.custom-footer {
+    background-color: #5eb6a6;
+    color: white;
+    padding: 60px 20px 40px;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-nav{
+    display: flexbox;
+    flex-direction: column;
+}
+.nav-harmony a {
+    color: white;
+    margin: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-harmony a:hover {
+    color: #1d7f67;
+    text-decoration: none;
+}
+
+.credits-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+/* Redes sociais */
+.social-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 25px;
+    background-color: #5eb6a6;
+    border: none;
+    width: fit-content;
+    margin: 0 auto;
+}
+.logo-harmony {
+    height: 50px;
+}
+
+.icon-wrapper {
+    width: 52px;
+    height: 52px;
+    background-color: #1d7f67;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.icon-wrapper:hover .icon-svg {
+    animation: slide-in-top 0.3s both;
+}
+
+.icon-wrapper:active {
+    transform: scale(0.9);
+}
+
+/* Cor de hover por rede social */
+.insta-hover:hover {
+    background-color: #d62976;
+}
+.twitter-hover:hover {
+    background-color: #00acee;
+}
+.linkedin-hover:hover {
+    background-color: #0072b1;
+}
+.whatsapp-hover:hover {
+    background-color: #128C7E;
+}
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-svg path {
+    fill: white;
+}
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+        .hero {
+            background: url('img/blog.jpg') center/cover no-repeat ;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 230px 20px;
+            width: 97%;
+            margin-top: 25px;
+            border-radius: 30px;   
+          margin-left: 18px;
+          text-shadow: 3px 3px 17px black;
+         
+          
+         
+        }
+
+        .text-center{
+            margin: 30px;
+        }
+        .section {
+            padding: 50px 30px;
+            margin-bottom: 30px;
+        }
+        .article-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .article-card:hover {
+            transform: scale(1.05);
+        }
+        .calculator-container {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .calcularAgua button{
+            background-color: #1d7f67;
+            border: none;
+            width: 40%;
+
+        }
+
+        .calcularAgua button:hover{
+            background-color: #5eb6a6;
+            border: none;
+            width: 40%;
+
+        }
+
+    
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="calculadorasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Calculadoras Nutricionais
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="calculadora1/index.html">Taxa de Metabolismo Basal (TMB)</a></li>
+                                <li><a class="dropdown-item" href="calculadora2/index.html">IMC (Índice de Massa Corporal)</a></li>
+                                <li><a class="dropdown-item" href="calculadora3/index.html">Peso Ideal</a></li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Recursos e Dicas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro1.html">Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Bem-vindo ao nosso blog de nutrição!</h1>
+        <p>Encontre informações valiosas para sua saúde e bem-estar.</p>
+    </section>
+
+    <div class="container section">
+        <h2 class="text-center">Artigos e Notícias</h2>
+        <div class="row">
+            <div class="col-md-4 fade-in">
+                <div class="card article-card">
+                    <img src="img/blog1.jpg" class="card-img-top" alt="Nutrição e saúde">
+                    <div class="card-body">
+                        <h5 class="card-title">Alimentação Balanceada</h5>
+                        <p class="card-text">Descubra como montar um prato saudável e equilibrado para o seu dia a dia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="card article-card">
+                    <img src="img/blog2.jpg" class="card-img-top" alt="Dicas de hidratação">
+                    <div class="card-body">
+                        <h5 class="card-title">A Importância da Hidratação</h5>
+                        <p class="card-text">Saiba quantos litros de água você deve beber diariamente para manter sua saúde.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="card article-card">
+                    <img src="img/blog3.jpg" class="card-img-top" alt="IMC e saúde">
+                    <div class="card-body">
+                        <h5 class="card-title">O que é IMC?</h5>
+                        <p class="card-text">Entenda como calcular seu Índice de Massa Corporal e o que ele significa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="calcularAgua">
+        <div class="container section calculator-container fade-in">
+            <h2 class="text-center">Calculadora de Consumo de Água</h2>
+            <p class="text-center">Informe seu peso para saber a quantidade ideal de água por dia.</p>
+            <div class="input-group mb-3">
+                <input type="number" id="peso" class="form-control" placeholder="Digite seu peso em kg"> 
+                <button class="btn btn-primary" onclick="calcularAgua()">Calcular</button>
+            </div>
+            <p id="resultadoAgua" class="text-center"></p>
+        </div>
+    </section>
+
+    <script>
+        function calcularAgua() {
+            let peso = document.getElementById("peso").value;
+            if (peso) {
+                let agua = peso * 35;
+                document.getElementById("resultadoAgua").innerText = `Você deve beber aproximadamente ${agua}ml de água por dia.`;
+            } else {
+                alert("Por favor, insira seu peso.");
+            }
+        }
+
+        document.addEventListener("scroll", function() {
+            let elementos = document.querySelectorAll(".fade-in");
+            elementos.forEach(function(el) {
+                let posicao = el.getBoundingClientRect().top;
+                let tela = window.innerHeight;
+                if (posicao < tela - 100) {
+                    el.classList.add("visible");
+                }
+            });
+        });
+    </script>
+   <a href="https://wa.me/5516996240551?text=Nutrition%20Harmony" 
+   style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; 
+          background-color: #FFFFFF; color: #25D366; border-radius: 50%; 
+          text-align: center; font-size: 30px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+          z-index: 1000;" 
+   target="_blank">
+    <i class="fab fa-whatsapp" style="line-height: 60px; color: #25D366;"></i>
+   </a>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="harmony-footer">
+        <div class="container text-center">
+            <img src="img/logo.png" alt="Logo Nutrition Harmony" class="logo-harmony mb-4">
+    
+            <div class="nav-harmony mb-3">
+                <a href="index.html">Início</a>
+                <a href="calculadora1/index.html">TMB</a>
+                <a href="calculadora2/index.html">IMC</a>
+                <a href="calculadora3/index.html">Peso Ideal</a>
+                <a href="blog.html">Dicas</a>
+                <a href="contato.html">Contato</a>
+                <a href="cadastro1.html">Cadastro</a>
+            </div>
+    
+            <div class="social-box mb-4">
+              <a href="#" class="icon-wrapper insta-hover" aria-label="Instagram">
+                  <svg class="icon-svg" viewBox="0 0 24 24">
+                      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zm4.75-.25a.75.75 0 1 1 0 1.5a.75.75 0 0 1 0-1.5z"/>
+                  </svg>
+              </a>
+              <a href="#" class="icon-wrapper twitter-hover" aria-label="Twitter">
+                  <svg class="icon-svg" viewBox="0 0 24 24">
+                      <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.35 8.5 8.5 0 0 1-2.7 1.03 4.22 4.22 0 0 0-7.2 3.85A12 12 0 0 1 3.1 4.9a4.22 4.22 0 0 0 1.3 5.63 4.2 4.2 0 0 1-1.91-.53v.05a4.22 4.22 0 0 0 3.38 4.13 4.3 4.3 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54a12 12 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.18 8.18 0 0 0 22.46 6z"/>
+                  </svg>
+              </a>
+              <a href="#" class="icon-wrapper linkedin-hover" aria-label="LinkedIn">
+                  <svg class="icon-svg" viewBox="0 0 24 24">
+                      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5zM3 8.75h3.95v11.5H3v-11.5zm7.14 0h3.79v1.56h.05a4.16 4.16 0 0 1 3.74-2.06c4 0 4.74 2.63 4.74 6.06v5.94h-3.95v-5.27c0-1.26-.02-2.89-1.76-2.89c-1.76 0-2.03 1.38-2.03 2.8v5.36h-3.95v-11.5z"/>
+                  </svg>
+              </a>
+              <a href="#" class="icon-wrapper whatsapp-hover" aria-label="WhatsApp">
+                  <svg class="icon-svg" viewBox="0 0 24 24">
+                      <path d="M17.5 14.5c-.3-.2-1.7-.8-2-1c-.3-.2-.5-.3-.8.1c-.2.3-.9 1.1-1.1 1.3c-.2.1-.4.2-.7.1c-.4-.1-1.6-.6-3-1.9c-1.1-1-1.9-2.3-2.1-2.7c-.2-.4 0-.6.2-.8c.2-.2.4-.5.6-.7c.2-.2.2-.3.3-.5c.1-.2 0-.4 0-.6c-.1-.2-.8-1.9-1.1-2.6c-.3-.7-.6-.6-.8-.6h-.6c-.2 0-.5 0-.7.3c-.2.3-1 1-1 2.4s1.1 2.8 1.3 3c.2.2 2.1 3.2 5 4.5c.7.3 1.2.5 1.7.6c.7.2 1.3.2 1.8.1c.6-.1 1.7-.7 1.9-1.3c.2-.6.2-1.1.2-1.2c0-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-9.6 13.1L2 22l6.9-1.9A10 10 0 1 0 12 2z"/>
+                  </svg>
+              </a>
+          </div>
+    
+            <p class="credits-text">© 2025 Nutrition Harmony. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

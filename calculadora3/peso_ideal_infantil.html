@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Peso Ideal Infantil</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .content {
+      display: flex;
+  flex-wrap: nowrap; 
+  align-items: flex-start;
+}
+
+
+    body {
+      font-family: 'Poppins';
+      color: #333;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      background-image: url('foto_infantil.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding-left: 8%;
+    }
+
+    .formcontainer {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      margin-top: 3%;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      flex: 1;
+    }
+
+    /* Estilos para o botão de voltar */
+    .go-back-btn {
+      background-color: #fff;
+      text-align: center;
+      width: 12rem;
+      height: 2.5rem;
+      border-radius: 1rem;
+      position: relative;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      overflow: hidden;
+    }
+
+    .go-back-btn p {
+      font-family: 'Poppins';
+      font-size: 17px;
+    }
+
+    .go-back-btn div {
+      background-color: #1d7f67;
+      height: 3rem;
+      width: 100%;
+      border-radius: 1rem;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      transition: width 0.5s ease;
+    }
+
+    .go-back-btn:hover {
+      background-color: #f1f1f1;
+    }
+
+    .go-back-btn:hover div {
+      width: 80%;
+    }
+
+    .go-back-btn svg {
+      fill: #fff;
+      height: 1.5rem;
+      width: 1.5rem;
+      z-index: 2;
+    }
+
+    .go-back-btn p {
+      margin-left: 1rem;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #1d7f67;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #5eb6a6;
+      margin-bottom: 8px;
+    }
+
+    label,
+    select,
+    input,
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #1d7f67;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #5eb6a6;
+    }
+
+    .resultado-container {
+      background-color: #1d7f67;
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      display: none;
+      text-align: center;
+      flex: 1;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+
+    .resultado-container h2 {
+      color: #bee1da;
+      text-align: center;
+    }
+
+    .resultado {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #pesoAtualBox {
+      display: none;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    #pesoResultado {
+      color: black;
+      font-weight: normal;
+      margin-top: 10px;
+    }
+
+    #btnDietaInfantil {
+      display: none;
+      background-color: #f8f8f8;
+      color: #1d7f67;
+      border: 1px solid #1d7f67;
+      margin-top: 15px;
+    }
+
+    .button {
+      --width: 400px;
+      --height: 40px;
+      --tooltip-height: 35px;
+      --tooltip-width: 90px;
+      --gap-between-tooltip-to-button: 18px;
+      --button-color: #1d7f67;
+      --tooltip-color: #fff;
+      width: var(--width);
+      height: var(--height);
+      background: var(--button-color);
+      position: relative;
+      text-align: center;
+
+      font-family: 'Poppins';
+      transition: background 0.3s;
+    }
+
+    .button::before {
+      position: absolute;
+      content: attr(data-tooltip);
+      width: var(--tooltip-width);
+      height: var(--tooltip-height);
+      background-color: var(--tooltip-color);
+      font-size: 0.9rem;
+      color: #111;
+      border-radius: .25em;
+      line-height: var(--tooltip-height);
+      bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+      left: calc(50% - var(--tooltip-width) / 2);
+    }
+
+    .button::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: var(--tooltip-color);
+      left: calc(50% - 10px);
+      bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+    }
+
+    .button::after, .button::before {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-wrapper, .text, .icon {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      color: #fff;
+
+    }
+
+    .text {
+      top: 0;
+    }
+
+    .text, .icon {
+      transition: top 0.5s;
+    }
+
+    .icon {
+      color: #fff;
+      top: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .button:hover {
+      background: #1d7f67;
+    }
+
+    .button:hover .text {
+      top: -100%;
+    }
+
+    .button:hover .icon {
+      top: 0;
+    }
+    @media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resultado-container {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  #pesoAtualBox {
+    margin-left: 0;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="container">
+      
+      <button class="go-back-btn" type="button" onclick="window.location.href='../calculadora3/index.html'">
+        <div></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
+            <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
+            <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
+        </svg>
+        <p>Voltar</p>
+    </button>
+
+      <h1>Calculadora de Peso Ideal Infantil</h1>
+
+      <h2>Informe a idade</h2>
+      <label for="idadeInfantil">Idade (anos):</label>
+      <input type="number" id="idadeInfantil" required />
+      <label for="mesesInfantil">Meses:</label>
+      <input type="number" id="mesesInfantil" required />
+
+      <h2>Selecione o gênero</h2>
+      <select id="sexoInfantil" required>
+        <option value="masculino">Menino</option>
+        <option value="feminino">Menina</option>
+      </select>
+
+      <h2>Informe a altura em centímetros</h2>
+      <label for="alturaInfantil">Altura (cm):</label>
+      <input type="number" id="alturaInfantil" required />
+
+      <button id="calcularPesoIdealInfantil">Calcular Peso Ideal</button>
+    </div>
+
+    <div class="resultado-container" id="resultadoBoxInfantil">
+      <h2>Resultado</h2>
+      <p class="resultado" id="resultadoPesoIdealInfantil"></p>
+      <button id="btnDietaInfantil">Deseja uma dieta personalizada?</button>
+    </div>
+
+    <div class="container" id="pesoAtualBox">
+      <h2>Sua Dieta Personalizada</h2>
+      <label for="pesoAtualInfantil">Informe o peso atual da criança (kg):</label>
+      <input type="number" id="pesoAtualInfantil" />
+      <button id="verificarDietaInfantil">Verificar Dieta</button>
+      <p id="pesoResultado"></p>
+      <div class="button" id="baixarDieta" data-tooltip="Baixar Dieta">
+        <div class="button-wrapper">
+          <div class="text">Baixar Dieta</div>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="func_infantil.js"></script>
+</body>
+
+</html>
