@@ -195,6 +195,53 @@ p, label, input, textarea, select, button {
             margin-left: 1rem;
             z-index: 2; 
         }
+
+        @media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        margin-left: 0;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .resultado-container {
+        margin-left: 0;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .go-back-btn {
+        width: 100%;
+        max-width: 250px;
+        height: 2.8rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .go-back-btn div {
+        width: 100%;
+    }
+
+    .go-back-btn:hover div {
+        width: 100%;
+    }
+
+    .go-back-btn p {
+        margin-left: 0.5rem;
+        font-size: 16px;
+    }
+}
     </style>
 </head>
 
