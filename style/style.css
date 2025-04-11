@@ -3,14 +3,19 @@
     src: url('Comfortaa-VariableFont_wght.ttf');
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p, label, input, textarea, select, button {
+    font-family: 'Comfortaa', cursive;
+}
 
 
-h1, h2 {
-    font-family: 'Poppins';
-}
-p {
-    font-family: 'Comfortaa';
-}
 /* Header */
 header {
     background: #1d7f67;
